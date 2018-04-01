@@ -9,12 +9,12 @@ using System.CodeDom.Compiler;
 
 namespace CreatingWindows
 {
-    [Register ("ViewController")]
-    partial class ViewController
-    {
-        
-        void ReleaseDesignerOutlets ()
-        {
-        }
-    }
+	[Register ("WindowController")]
+	partial class WindowController
+	{
+		
+		void ReleaseDesignerOutlets ()
+		{
+		}
+	}
 }

@@ -30,5 +30,10 @@ namespace CreatingWindows
                 // Update the view, if already loaded.
             }
         }
-    }
+
+		public override void ViewWillAppear()
+		{
+            base.ViewWillAppear();
+		}
+	}
 }
