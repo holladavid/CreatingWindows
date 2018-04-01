@@ -12,9 +12,15 @@ namespace CreatingWindows
     [Register ("ViewController")]
     partial class ViewController
     {
+        [Outlet]
+        AppKit.NSScrollView TextEditor { get; set; }
         
         void ReleaseDesignerOutlets ()
         {
+            if (TextEditor != null) {
+                TextEditor.Dispose ();
+                TextEditor = null;
+            }
         }
     }
 }

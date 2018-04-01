@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Linq;
 using AppKit;
 using Foundation;
 
@@ -34,6 +34,25 @@ namespace CreatingWindows
 		public override void ViewWillAppear()
 		{
             base.ViewWillAppear();
+
+            // Set Window Title
+            this.View.Window.Title = "untitled";
+
+            // Just trying to find the text control
+            // Should have made an outlet directly :-)
+            if (TextEditor.Subviews.Any())
+            {
+                if (TextEditor.Subviews.First() is NSClipView clipView)
+                {
+                    if (clipView.Subviews.Any())
+                    {
+                        if (clipView.Subviews.First() is NSTextView textView)
+                            textView.TextStorage.DidProcessEditing += (sender, e) => {
+                            View.Window.DocumentEdited = true;
+                        };
+                    }
+                }
+            }       
 		}
 	}
 }
