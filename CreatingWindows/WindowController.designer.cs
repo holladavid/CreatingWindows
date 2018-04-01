@@ -12,6 +12,8 @@ namespace CreatingWindows
 	[Register ("WindowController")]
 	partial class WindowController
 	{
+		[Action ("ResizeWindow:")]
+		partial void ResizeWindow (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{

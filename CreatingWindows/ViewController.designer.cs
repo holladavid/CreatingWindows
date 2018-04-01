@@ -9,18 +9,18 @@ using System.CodeDom.Compiler;
 
 namespace CreatingWindows
 {
-    [Register ("ViewController")]
-    partial class ViewController
-    {
-        [Outlet]
-        AppKit.NSScrollView TextEditor { get; set; }
-        
-        void ReleaseDesignerOutlets ()
-        {
-            if (TextEditor != null) {
-                TextEditor.Dispose ();
-                TextEditor = null;
-            }
-        }
-    }
+	[Register ("ViewController")]
+	partial class ViewController
+	{
+		[Outlet]
+		AppKit.NSTextView DocumentEditor { get; set; }
+		
+		void ReleaseDesignerOutlets ()
+		{
+			if (DocumentEditor != null) {
+				DocumentEditor.Dispose ();
+				DocumentEditor = null;
+			}
+		}
+	}
 }

@@ -4,6 +4,7 @@ using System;
 
 using Foundation;
 using AppKit;
+using CoreGraphics;
 
 namespace CreatingWindows
 {
@@ -11,6 +12,28 @@ namespace CreatingWindows
 	{
 		public WindowController (IntPtr handle) : base (handle)
 		{
+
 		}
+
+		public override void AwakeFromNib()
+		{
+            base.AwakeFromNib();
+
+            // Set delegate
+            Window.Delegate = new EditorWindowDelegate(Window);
+		}
+
+		partial void ResizeWindow(NSObject sender)
+		{
+            nfloat y = 0;
+
+            // Calculate new origin
+            y = Window.Frame.Y - (768 - Window.Frame.Height);
+
+            // Resize and position window
+            CGRect frame = new CGRect(Window.Frame.X, y, 1024, 768);
+            Window.SetFrame(frame, true);
+		}
+
 	}
 }

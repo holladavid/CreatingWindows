@@ -663,12 +663,18 @@
                                 <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="aAa-Re-ezx"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="kWp-ff-725"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="NV7-97-bky"/>
+                                <toolbarItem implicitItemIdentifier="7E2A783F-90C8-4289-B2FA-2FCE421DCF84" label="Resize" paletteLabel="Resize" toolTip="Resize" tag="-1" image="NSTouchBarEnterFullScreenTemplate" id="KqO-aB-wqa">
+                                    <connections>
+                                        <action selector="ResizeWindow:" target="B8D-0N-5wS" id="EEV-El-KAA"/>
+                                    </connections>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="nK5-8s-1ie"/>
                                 <toolbarItem reference="UDa-SB-XcP"/>
                                 <toolbarItem reference="NV7-97-bky"/>
                                 <toolbarItem reference="aAa-Re-ezx"/>
+                                <toolbarItem reference="KqO-aB-wqa"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
@@ -691,14 +697,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCA-rS-oKm">
+                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCA-rS-oKm">
                                 <rect key="frame" x="20" y="20" width="440" height="230"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <clipView key="contentView" ambiguous="YES" id="nFO-H8-y6U">
+                                <clipView key="contentView" id="nFO-H8-y6U">
                                     <rect key="frame" x="1" y="1" width="438" height="228"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView ambiguous="YES" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="7lU-PQ-L9p">
+                                        <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="7lU-PQ-L9p">
                                             <rect key="frame" x="0.0" y="0.0" width="438" height="228"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -719,9 +724,15 @@
                                 </scroller>
                             </scrollView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="xCA-rS-oKm" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="5ZJ-X1-oQo"/>
+                            <constraint firstItem="xCA-rS-oKm" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="AEm-4n-pBc"/>
+                            <constraint firstAttribute="trailing" secondItem="xCA-rS-oKm" secondAttribute="trailing" constant="20" id="Rmc-g0-fHL"/>
+                            <constraint firstAttribute="bottom" secondItem="xCA-rS-oKm" secondAttribute="bottom" constant="20" id="TZZ-OT-PQY"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="TextEditor" destination="xCA-rS-oKm" id="e8g-3A-tZ1"/>
+                        <outlet property="DocumentEditor" destination="7lU-PQ-L9p" id="TNM-Nz-RPg"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -729,4 +740,7 @@
             <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSTouchBarEnterFullScreenTemplate" width="18" height="30"/>
+    </resources>
 </document>
