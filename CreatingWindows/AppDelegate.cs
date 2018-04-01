@@ -1,11 +1,11 @@
-﻿using AppKit;
+using AppKit;
 using Foundation;
 using System.IO;
 
 namespace CreatingWindows
 {
     [Register("AppDelegate")]
-    public class AppDelegate : NSApplicationDelegate
+    public partial class AppDelegate : NSApplicationDelegate
     {
         public int UntitledWindowCount { get; set; } = 1;
 
