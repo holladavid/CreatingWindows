@@ -1,6 +1,6 @@
 # CreatingWindows
-Tutorial for creating Windows with Xamarin from docs.microsoft.com
+Here I try to build the tutorial project for creating Windows with Xamarin from docs.microsoft.com:
 
 https://docs.microsoft.com/en-us/xamarin/mac/user-interface/window
 
-Just learning Xamarin for MacOS from the Microsoft documentation.
+Just started learning Xamarin with Cocoa for MacOS.
