@@ -26,11 +26,11 @@ namespace CreatingWindows
             // is the window dirty?
             if (Window.DocumentEdited)
             {
-                var alert = new NSAlert()
+                var alert = new NSAlert
                 {
                     AlertStyle = NSAlertStyle.Critical,
                     InformativeText = "Save changes to document before closing window?",
-                    MessageText = "Save Document",
+                    MessageText = "Save Document"
                 };
                 alert.AddButton("Save");
                 alert.AddButton("Lose Changes");
@@ -53,24 +53,23 @@ namespace CreatingWindows
                             // File.WriteAllText(path, viewController.Text);
                             return true;
                         }
-                        else
+
+                        var dlg = new NSSavePanel();
+                        dlg.Title = "Save Document";
+                        dlg.BeginSheet(Window, (rslt) =>
                         {
-                            var dlg = new NSSavePanel();
-                            dlg.Title = "Save Document";
-                            dlg.BeginSheet(Window, (rslt) => {
-                                // File selected?
-                                if (rslt == 1)
-                                {
-                                    var path = dlg.Url.Path;
-                                    // File.WriteAllText(path, viewController.Text);
-                                    Window.DocumentEdited = false;
-                                    viewController.View.Window.SetTitleWithRepresentedFilename(Path.GetFileName(path));
-                                    viewController.View.Window.RepresentedUrl = dlg.Url;
-                                    Window.Close();
-                                }
-                            });
-                            return true;
-                        }
+                            // File selected?
+                            if (rslt == 1)
+                            {
+                                var path = dlg.Url.Path;
+                                // File.WriteAllText(path, viewController.Text);
+                                Window.DocumentEdited = false;
+                                viewController.View.Window.SetTitleWithRepresentedFilename(Path.GetFileName(path));
+                                viewController.View.Window.RepresentedUrl = dlg.Url;
+                                Window.Close();
+                            }
+                        });
+                        return true;
                     case 1001:
                         // Lose Changes
                         return true;

@@ -44,6 +44,12 @@ namespace CreatingWindows
             get => DocumentEditor.TextStorage.ToString();
             set => DocumentEditor.TextStorage.MutableString.SetString((Foundation.NSString)value);
         }
+
+        public string FilePath
+        {
+            get;
+            set;
+        }
         #endregion
 
         public override void ViewWillAppear()

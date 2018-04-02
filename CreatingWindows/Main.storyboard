@@ -22,7 +22,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="R4z-iM-dnc" kind="show" id="c04-1P-Awv"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -689,6 +693,108 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="ANb-9M-fNX">
+            <objects>
+                <windowController storyboardIdentifier="PreferencesWindow" id="R4z-iM-dnc" customClass="PreferencesWindowController" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="gGO-w0-hSD">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="294" y="362" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+                        <toolbar key="toolbar" implicitIdentifier="2DF286BB-3B55-407A-9685-555A8EE3BC8C" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="5E5-AF-Q0Z">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="C63-kX-yey"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="Jse-Vg-LHZ"/>
+                                <toolbarItem implicitItemIdentifier="4D69D4A8-C62C-454F-BACA-C43F562E7365" label="Setup 1" paletteLabel="Toolbar Item" tag="-1" image="NSApplicationIcon" id="b9T-9z-gYy">
+                                    <connections>
+                                        <segue destination="Lne-LT-vOV" kind="sheet" id="ABb-kf-ime"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="F7517BF1-73D5-4A10-9D8C-6312C5F05353" label="Setup 2" paletteLabel="Toolbar Item" tag="-1" image="NSEveryone" id="Sw3-Nu-0hk">
+                                    <connections>
+                                        <segue destination="4n9-pf-ZPh" kind="sheet" id="JLH-OV-emS"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="F943A0C1-74F5-46C1-B649-515A7A93C984" label="Setup 3" paletteLabel="Toolbar Item" tag="-1" image="NSFolder" id="whG-WO-nZI">
+                                    <connections>
+                                        <segue destination="fZo-dC-evb" kind="sheet" id="S3w-rT-pyM"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="8CCAF5CD-1631-4260-8731-C80D5F2DB92C" label="Setup 4" paletteLabel="Toolbar Item" tag="-1" image="NSComputer" id="6mu-MV-QRv">
+                                    <connections>
+                                        <segue destination="byB-7X-PAB" kind="sheet" id="Ihx-PK-HTM"/>
+                                    </connections>
+                                </toolbarItem>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="b9T-9z-gYy"/>
+                                <toolbarItem reference="Sw3-Nu-0hk"/>
+                                <toolbarItem reference="whG-WO-nZI"/>
+                                <toolbarItem reference="6mu-MV-QRv"/>
+                            </defaultToolbarItems>
+                        </toolbar>
+                        <connections>
+                            <outlet property="delegate" destination="R4z-iM-dnc" id="qlG-5s-PAJ"/>
+                        </connections>
+                    </window>
+                </windowController>
+                <customObject id="FKQ-4Z-Grf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="717" y="409"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bAG-Wk-CYq">
+            <objects>
+                <viewController id="byB-7X-PAB" sceneMemberID="viewController">
+                    <view key="view" id="Ico-9g-BMi">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="STE-1e-KG0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1588" y="1092"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6Vv-Ow-gDM">
+            <objects>
+                <viewController id="Lne-LT-vOV" sceneMemberID="viewController">
+                    <view key="view" id="tje-Hi-oGz">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="ZMr-oX-KTL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="438" y="1068"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="b6w-hm-kpt">
+            <objects>
+                <viewController id="4n9-pf-ZPh" sceneMemberID="viewController">
+                    <view key="view" id="fbX-QH-rLU">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="ZzE-Xb-BtB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="820" y="1422"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="d06-aR-av7">
+            <objects>
+                <viewController id="fZo-dC-evb" sceneMemberID="viewController">
+                    <view key="view" id="csq-lN-8RS">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="ffJ-aV-dX8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1095" y="1040"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
@@ -741,6 +847,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="NSApplicationIcon" width="128" height="128"/>
+        <image name="NSComputer" width="32" height="32"/>
+        <image name="NSEveryone" width="32" height="32"/>
+        <image name="NSFolder" width="32" height="32"/>
         <image name="NSTouchBarEnterFullScreenTemplate" width="18" height="30"/>
     </resources>
 </document>

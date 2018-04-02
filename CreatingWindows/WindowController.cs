@@ -31,7 +31,7 @@ namespace CreatingWindows
             y = Window.Frame.Y - (768 - Window.Frame.Height);
 
             // Resize and position window
-            CGRect frame = new CGRect(Window.Frame.X, y, 1024, 768);
+            var frame = new CGRect(Window.Frame.X, y, 1024, 768);
             Window.SetFrame(frame, true);
 		}
 

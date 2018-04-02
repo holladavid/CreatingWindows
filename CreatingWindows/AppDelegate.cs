@@ -54,21 +54,41 @@ namespace CreatingWindows
                 {
                     var path = url.Path;
 
-                    // Get new window
-                    var storyboard = NSStoryboard.FromName("Main", null);
-                    var controller = storyboard.InstantiateControllerWithIdentifier("MainWindow") as NSWindowController;
+                    if (!IsFileOpenBringToFront(path))
+                    {
 
-                    // Display
-                    controller.ShowWindow(this);
+                        // Get new window
+                        var storyboard = NSStoryboard.FromName("Main", null);
+                        var controller = storyboard.InstantiateControllerWithIdentifier("MainWindow") as NSWindowController;
 
-                    // Load the text into the window
-                    var viewController = controller.Window.ContentViewController as ViewController;
-                    viewController.Text = File.ReadAllText(path);
-                    viewController.View.Window.SetTitleWithRepresentedFilename(Path.GetFileName(path));
-                    viewController.View.Window.RepresentedUrl = url;
+                        // Display
+                        controller.ShowWindow(this);
+
+                        // Load the text into the window
+                        var viewController = controller.Window.ContentViewController as ViewController;
+                        viewController.Text = File.ReadAllText(path);
+                        viewController.FilePath = path;
+                        viewController.View.Window.SetTitleWithRepresentedFilename(Path.GetFileName(path));
+                        viewController.View.Window.RepresentedUrl = url;
+                    }
 
                 }
             }
+        }
+
+        private bool IsFileOpenBringToFront(string path)
+        {
+            // Is the file already open?
+            foreach (var window in NSApplication.SharedApplication.Windows)
+            {
+                if (window.ContentViewController is ViewController content && path == content.FilePath)
+                {
+                    // Bring window to front
+                    window.MakeKeyAndOrderFront(this);
+                    return true;
+                }
+            }
+            return false;
         }
         #endregion
 
